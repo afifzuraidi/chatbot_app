@@ -21,7 +21,7 @@ This is a simple chatbot web interface built with **Ruby on Rails**, integrated 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/chatbot-app.git
+git clone https://github.com/afifzuraidi/chatbot_app.git
 cd chatbot-app
 ```
 
