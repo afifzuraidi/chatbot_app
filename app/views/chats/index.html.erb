@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Chatbot</h1>
+
+<%= form_with model: @chat, local: true do |f| %>
+  <div>
+    <%= f.label :message, "Your Message" %>
+    <%= f.text_area :message, rows: 3 %>
+  </div>
+  <%= f.submit "Send" %>
+<% end %>
+
+<hr>
+
+<div id="chatbox">
+  <% @chats.each do |chat| %>
+    <p><strong>You:</strong> <%= chat.message %></p>
+    <p><strong>OpenAI:</strong> <%= chat.response %></p>
+    <hr>
+  <% end %>
+</div>
