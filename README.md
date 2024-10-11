@@ -22,7 +22,7 @@ This is a simple chatbot web interface built with **Ruby on Rails**, integrated 
 
 ```bash
 git clone https://github.com/afifzuraidi/chatbot_app.git
-cd chatbot-app
+cd chatbot_app
 ```
 
 ### 2. Install Dependencies
