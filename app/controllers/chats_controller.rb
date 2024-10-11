@@ -1,14 +1,16 @@
 class ChatsController < ApplicationController
+  require_relative '../services/chat_gpt_service'
+  before_action :authenticate_user!
 
   # GET /chats or /chats.json
   def index
-    @chats = Chat.all.order(created_at: :asc)
+    @chats = current_user.chats.order(created_at: :asc)
     @chat = Chat.new
   end
 
   # POST /chats or /chats.json
   def create
-    @chat = Chat.new(chat_params)
+    @chat = current_user.chats.new(chat_params)
 
     respond_to do |format|
       if @chat.save

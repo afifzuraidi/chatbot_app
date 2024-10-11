@@ -1,21 +1,29 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Chatbot</h1>
-
-<%= form_with model: @chat, local: true do |f| %>
-  <div>
-    <%= f.label :message, "Your Message" %>
-    <%= f.text_area :message, rows: 3 %>
+<div class="container">
+  <div id="chatbox" class="mt-4">
+    <% @chats.each do |chat| %>
+      <div class="mb-3">
+        <div class="alert alert-secondary">
+          <strong>You:</strong> <%= chat.message %>
+        </div>
+        <div class="alert alert-info">
+          <strong>OpenAI:</strong> <%= chat.response %>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <%= f.submit "Send" %>
-<% end %>
 
-<hr>
+  <hr>
 
-<div id="chatbox">
-  <% @chats.each do |chat| %>
-    <p><strong>You:</strong> <%= chat.message %></p>
-    <p><strong>OpenAI:</strong> <%= chat.response %></p>
-    <hr>
-  <% end %>
+  <div class="fixed-bottom bg-white p-3 shadow">
+    <%= form_with model: @chat, local: true, class: "form-inline" do |f| %>
+      <div class="input-group">
+        <%= f.text_area :message, rows: 1, class: "form-control", placeholder: "Type your message..." %>
+        <div class="input-group-append">
+          <%= f.submit "Send", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
